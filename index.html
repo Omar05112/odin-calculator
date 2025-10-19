@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<button>1</button>
-<button>2</button>
-<button>3</button>
-<button>4</button>
-<button>5</button>
-<button>6</button>
-<button>7</button>
-<button>8</button>
-<button>9</button>
-<button>-</button>
-<button>+</button>
-<button>*</button>
-<button>/</button>
-<button>=</button>
-<button>C</button>
-<script src="script.js"></script>   
-</body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="entireCalculator">
+      <div class="result">17771</div>
+      <div class="operatorsAndNumbersContainer">
+        <div class="numberClearEqualContainer">
+          <button class="nine" id="number">9</button>
+          <button class="eight" id="number">8</button>
+          <button class="seven" id="number">7</button>
+          <button class="six" id="number">6</button>
+          <button class="five" id="number">5</button>
+          <button class="four" id="number">4</button>
+          <button class="three" id="number">3</button>
+          <button class="two" id="number">2</button>
+          <button class="one" id="number">1</button>
+          <button class="zero" id="number">0</button>
+          <button class="clear">C</button>
+          <button class="equal" id="equal">=</button>
+        </div>
+        <div class="operatorContainer">
+          <button class="substract" id="operator">-</button>
+          <button class="add" id="operator">+</button>
+          <button class="multiply" id="operator">*</button>
+          <button class="divide" id="operator">/</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>

@@ -32,18 +32,5 @@ function operate(operator, firstNumber, secondNumber) {
   }
   return result;
 }
-//   if (operator == "-") {
-//     substract(firstNumber, secondNumber);
-//     return result;
-//   } else if (operator == "+") {
-//     add(firstNumber, secondNumber);
-//     return result;
-//   } else if (operator == "*") {
-//     multiply(firstNumber, secondNumber);
-//     return result;
-//   } else if (operator == "/") {
-//     divide(firstNumber, secondNumber);
-//     return result;
-//   }
 
 console.log(operate("*", 9, 14));

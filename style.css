@@ -1,0 +1,108 @@
+.entireCalculator {
+  background-color: grey;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-top: 250px;
+  width: 240px;
+  height: 290px;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.operatorsAndNumbersContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numberClearEqualContainer {
+  box-sizing: border-box;
+  display: flex;
+
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+button {
+  align-items: center;
+  background-color: #0a66c2;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: -apple-system, system-ui, system-ui, "Segoe UI", Roboto,
+    "Helvetica Neue", "Fira Sans", Ubuntu, Oxygen, "Oxygen Sans", Cantarell,
+    "Droid Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+}
+
+button:hover {
+  background-color: #2b7ce7;
+}
+
+button.clear {
+  background-color: rgb(235, 200, 5);
+}
+
+button.clear:hover {
+  background-color: rgb(255, 230, 0);
+}
+
+button.equal {
+  background-color: rgb(14, 155, 14);
+}
+
+button.equal:hover {
+  background-color: rgb(14, 196, 14);
+}
+
+#operator {
+  background-color: rgb(70, 70, 70);
+}
+
+#operator:hover {
+  background-color: rgb(102, 102, 102);
+}
+
+.operatorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.result {
+  justify-content: center;
+  align-content: center;
+  background-color: rgb(85, 102, 83);
+  margin-bottom: 20px;
+  width: 235px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: 40px;
+  text-align: right;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  white-space: normal;
+}
