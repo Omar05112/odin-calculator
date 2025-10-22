@@ -3,24 +3,20 @@ let mathOperator = "";
 let secondNumber = "";
 
 let number = document.querySelectorAll(".number");
-
 let display = document.getElementById("result");
 let clear = document.getElementById("clear");
 let operator = document.querySelectorAll(".operator");
+let equal = document.getElementById("equal");
 
 function newNumber() {
   number.forEach((button) => {
     button.addEventListener("click", function (e) {
       if (!mathOperator) {
-        if (display.textContent == "0") {
-          display.textContent = button.textContent;
-        } else {
-          display.textContent += button.textContent;
-        }
-        firstNumber = display.textContent;
+        if (firstNumber == "0") {
+          firstNumber = button.textContent;
+        } else firstNumber += button.textContent;
       } else {
-        display.textContent += button.textContent;
-        secondNumber = display.textContent;
+        secondNumber += button.textContent;
       }
       displayStructure();
     });
@@ -30,7 +26,12 @@ function newNumber() {
 function currentOperator() {
   operator.forEach((button) => {
     button.addEventListener("click", function (e) {
+      if (secondNumber) {
+        firstNumber = Number(operate(mathOperator, firstNumber, secondNumber));
+      }
+      secondNumber = "";
       mathOperator = button.textContent;
+
       displayStructure();
     });
   });
@@ -42,43 +43,53 @@ function clearDisplay() {
   });
 }
 
+function displayStructure() {
+  display.textContent = `${firstNumber}${mathOperator}${secondNumber}`;
+  console.log(
+    `firstNumber: ${firstNumber}, mathOperator; ${mathOperator}, secondNumber: ${secondNumber}`
+  );
+}
+
+function equal() {}
+
 newNumber();
 currentOperator();
 clearDisplay();
+displayStructure();
 
-function displayStructure() {
-  display.textContent = `${firstNumber}${mathOperator}${secondNumber}`;
+function operate(operator, firstNumber, secondNumber) {
+  let result = 0;
+  function add(firstNumber, secondNumber) {
+    result = Number(firstNumber) + Number(secondNumber);
+  }
+  function substract(firstNumber, secondNumber) {
+    result = firstNumber - secondNumber;
+  }
+  function multiply(firstNumber, secondNumber) {
+    result = firstNumber * secondNumber;
+  }
+  function divide(firstNumber, secondNumber) {
+    result = firstNumber / secondNumber;
+  }
+  switch (operator) {
+    case "-":
+      substract(firstNumber, secondNumber);
+      break;
+    case "+":
+      add(firstNumber, secondNumber);
+      break;
+    case "*":
+      multiply(firstNumber, secondNumber);
+      break;
+    case "/":
+      if (secondNumber === 0) {
+        display.textContent = "Can't divide by 0";
+        return;
+      }
+      divide(firstNumber, secondNumber);
+      break;
+  }
+  return result;
 }
 
-// function operate(operator, firstNumber, secondNumber) {
-//   let result = 0;
-//   function add(firstNumber, secondNumber) {
-//     result = firstNumber + secondNumber;
-//   }
-//   function substract(firstNumber, secondNumber) {
-//     result = firstNumber - secondNumber;
-//   }
-//   function multiply(firstNumber, secondNumber) {
-//     result = firstNumber * secondNumber;
-//   }
-//   function divide(firstNumber, secondNumber) {
-//     result = firstNumber / secondNumber;
-//   }
-//   switch (operator) {
-//     case "-":
-//       substract(firstNumber, secondNumber);
-//       break;
-//     case "+":
-//       add(firstNumber, secondNumber);
-//       break;
-//     case "*":
-//       multiply(firstNumber, secondNumber);
-//       break;
-//     case "/":
-//       divide(firstNumber, secondNumber);
-//       break;
-//   }
-//   return result;
-// }
-
-// console.log(operate("*", 9, 14));
+console.log(operate("-", 3, 20));
