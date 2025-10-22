@@ -27,6 +27,13 @@ function currentOperator() {
   operator.forEach((button) => {
     button.addEventListener("click", function (e) {
       if (secondNumber) {
+        if (mathOperator == "/" && Number(secondNumber) === 0) {
+          display.textContent = "Can't divide by 0, please start again.";
+          firstNumber = "0";
+          mathOperator = "";
+          secondNumber = "";
+          return;
+        }
         firstNumber =
           Math.round(
             Number(operate(mathOperator, firstNumber, secondNumber) * 100000)
@@ -41,8 +48,10 @@ function currentOperator() {
 
 function clearDisplay() {
   clear.addEventListener("click", (e) => {
-    display.innerHTML = "0";
-    displayStructure();
+    display.textContent = "0";
+    secondNumber = "";
+    mathOperator = "";
+    firstNumber = "0";
   });
 }
 
@@ -55,8 +64,21 @@ function displayStructure() {
 
 function equalFunctionality() {
   equal.addEventListener("click", function (e) {
+    if (firstNumber == display.textContent) {
+      return;
+    }
     if (mathOperator && !secondNumber) {
       display.textContent = "Please reset";
+      firstNumber = "0";
+      mathOperator = "";
+      secondNumber = "";
+      return;
+    }
+    if (mathOperator == "/" && Number(secondNumber) === 0) {
+      display.textContent = "Can't divide by 0, please start again.";
+      firstNumber = "0";
+      mathOperator = "";
+      secondNumber = "";
       return;
     }
     firstNumber =
@@ -94,10 +116,6 @@ function operate(operator, firstNumber, secondNumber) {
       multiply(firstNumber, secondNumber);
       break;
     case "/":
-      if (Number(secondNumber) === 0) {
-        display.textContent = "Can't divide by 0";
-        return;
-      }
       divide(firstNumber, secondNumber);
       break;
   }
